@@ -4,7 +4,7 @@
 use Core\Database;
 use Core\App;
 
-$db = App::resovle(Database::class);
+$db = App::resolve(Database::class);
 
 
 $currentUserId = 1;

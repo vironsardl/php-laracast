@@ -3,7 +3,7 @@
 use Core\Database;
 use Core\App;
 
-$db = App::resovle(Database::class);
+$db = App::resolve(Database::class);
 
 $notes = $db->query('select * from notes where user_id = 1')->get();
 

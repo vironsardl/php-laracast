@@ -5,7 +5,7 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
-$db = App::resovle(Database::class);
+$db = App::resolve(Database::class);
 
 $currentUserId = 1;
 

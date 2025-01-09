@@ -26,7 +26,7 @@ if (!empty($errors)) {
     ]);
 }
     
-$db = App::resovle(Database::class);
+$db = App::resolve(Database::class);
 // check if the account aleady exists
 $user = $db->query('select * from users where email = :email', [
     'email' => $email
@@ -39,15 +39,13 @@ if($user)
 } else {
     $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
     'email' => $email,
-    'password' => $password
+    'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
 
     // mark that the user is logged in
 
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
+    login($user);
     
-    header('Location: /');
+    header('location: /');
     exit();
 }
